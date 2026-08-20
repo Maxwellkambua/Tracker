@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>📋 Task Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📋 Task Tracker</h1>
+            <p class="subtitle">Organize your day, one task at a time.</p>
+        </header>
+
+        <!-- Add Task Form -->
+        <div class="add-task">
+            <input type="text" id="taskInput" placeholder="What do you need to do?" />
+            <input type="date" id="taskDate" />
+            <button id="addBtn">+ Add Task</button>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="active">Active</button>
+            <button class="filter-btn" data-filter="completed">Completed</button>
+        </div>
+
+        <!-- Task List -->
+        <div id="taskList" class="task-list">
+            <!-- Tasks will be rendered here by JavaScript -->
+        </div>
+
+        <!-- Stats -->
+        <div class="stats">
+            <span id="totalTasks">0</span> total tasks |
+            <span id="activeTasks">0</span> active |
+            <span id="completedTasks">0</span> completed
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

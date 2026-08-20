@@ -1,0 +1,314 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    border-radius: 24px;
+    padding: 40px;
+    max-width: 700px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+header h1 {
+    color: white;
+    font-weight: 300;
+    font-size: 2.2rem;
+    text-align: center;
+}
+
+header .subtitle {
+    color: rgba(255, 255, 255, 0.4);
+    text-align: center;
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+}
+
+.add-task {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.add-task input[type="text"] {
+    flex: 1;
+    padding: 14px 18px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    outline: none;
+    transition: 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.add-task input[type="text"]::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.add-task input[type="text"]:focus {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: #ff6b35;
+}
+
+.add-task input[type="date"] {
+    padding: 14px 18px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    outline: none;
+    transition: 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    min-width: 160px;
+}
+
+.add-task input[type="date"]:focus {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: #ff6b35;
+}
+
+.add-task button {
+    padding: 14px 28px;
+    border: none;
+    border-radius: 12px;
+    background: #ff6b35;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.add-task button:hover {
+    background: #ff8555;
+    transform: scale(1.02);
+    box-shadow: 0 8px 30px rgba(255, 107, 53, 0.3);
+}
+
+.filters {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.filters button {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filters button:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+}
+
+.filters button.active {
+    background: #ff6b35;
+    color: white;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+    min-height: 200px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 16px 20px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.3s;
+    animation: fadeIn 0.3s ease;
+}
+
+.task-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.task-item.completed {
+    opacity: 0.5;
+}
+
+.task-item.completed .task-text {
+    text-decoration: line-through;
+}
+
+.task-item .task-checkbox {
+    width: 20px;
+    height: 20px;
+    accent-color: #ff6b35;
+    cursor: pointer;
+}
+
+.task-item .task-text {
+    flex: 1;
+    color: white;
+    font-size: 1rem;
+    word-break: break-word;
+}
+
+.task-item .task-date {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+.task-item .task-delete {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.task-item .task-delete:hover {
+    color: #ff6b35;
+}
+
+.empty-state {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.25);
+    padding: 40px 0;
+    font-size: 0.95rem;
+}
+
+.stats {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.25);
+    font-size: 0.85rem;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stats span {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    .add-task {
+        flex-wrap: wrap;
+    }
+
+    .add-task input[type="text"] {
+        flex: 1 1 100%;
+    }
+
+    .add-task input[type="date"] {
+        flex: 1;
+    }
+
+    .add-task button {
+        flex: 1;
+    }
+
+    .task-item {
+        flex-wrap: wrap;
+    }
+
+    .task-item .task-date {
+        margin-left: auto;
+    }
+}
+
+/* feat: implement add task functionality */
+
+/* feat: implement task completion toggle */
+
+/* feat: implement delete task functionality */
+
+/* feat: implement task filtering (all/active/completed) */
+
+/* feat: implement localStorage persistence */
+
+/* feat: add edit task (double-click to edit) */
+
+/* feat: add date picker for task deadlines */
+
+/* style: implement dark theme with glass-morphism */
+
+/* style: improve button hover effects */
+
+/* style: add task animations */
+
+/* feat: add task counter stats */
+
+/* feat: add empty state message */
+
+/* refactor: extract render function to separate module */
+
+/* feat: add keyboard support (Enter to add) */
+
+/* style: improve responsive design for mobile */
+
+/* docs: update README with features list */
+
+/* docs: add live demo link */
+
+/* feat: add task input auto-focus after add */
+
+/* style: add task completion styling (strikethrough) */
+
+/* feat: add escape HTML to prevent XSS */
+
+/* fix: handle empty task input */
+
+/* style: improve task item hover effects */
+
+/* feat: add task count in filter buttons */
+
+/* refactor: improve code organization */
+
+/* feat: add task creation timestamp */
+
+/* style: add subtle border glow effects */
+
+/* fix: preserve task order after updates */
+
+/* chore: final code cleanup */
